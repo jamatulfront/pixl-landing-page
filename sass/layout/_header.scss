@@ -1,0 +1,45 @@
+.header {
+  min-height: 8rem;
+  max-width: 85%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @include respond(tab-port) {
+    flex-direction: column;
+  }
+  &-logo {
+    @include respond(tab-port) {
+      margin: 2rem 0;
+    }
+    &-img {
+    }
+  }
+  &-nav {
+    &-links {
+      list-style: none;
+      &-item {
+      }
+    }
+    &-link {
+      color: $color-white-sp;
+      text-decoration: none;
+      &:not(:last-child) {
+        margin-right: 5rem;
+        @include respond(tab-land) {
+          margin-right: 3.5rem;
+        }
+        @include respond(tab-port) {
+          margin-right: 2rem;
+        }
+      }
+      &--active {
+      }
+    }
+  }
+  &-btns-box {
+    @include respond(tab-port) {
+      margin: 2rem 0;
+    }
+  }
+}

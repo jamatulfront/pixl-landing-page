@@ -1,0 +1,21 @@
+.btn {
+  font-weight: bold;
+  font-size: 1.6rem;
+  padding: 1.2rem 2.5rem;
+  border-radius: 10rem;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  &--white {
+    color: $color-primary;
+  }
+  &--purple {
+    color: $color-white;
+    background-color: $color-primary;
+  }
+  &--circle {
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+  }
+}

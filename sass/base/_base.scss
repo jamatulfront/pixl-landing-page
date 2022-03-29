@@ -1,0 +1,29 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  @include respond(tab-land) {
+    font-size: 59%;
+  }
+  @include respond(tab-port) {
+    font-size: 56%;
+  }
+  @include respond(phone) {
+    font-size: 52%;
+  }
+  @include respond(big-desktop) {
+    font-size: 68%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+//::selection

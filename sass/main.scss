@@ -1,0 +1,18 @@
+//ABSTRACTS
+@import "./abstracts/variables";
+@import "./abstracts/mixins";
+
+//BASE
+@import "./base/base";
+@import "./base/utilities";
+@import "./base/typhography";
+@import "./base/animations";
+
+//COMPONENTS
+@import "./components/btn";
+@import "./components/clients-grid";
+//LAYOUTS
+@import "./layout/header";
+@import "./layout/footer";
+//PAGES
+@import "./pages/home";
