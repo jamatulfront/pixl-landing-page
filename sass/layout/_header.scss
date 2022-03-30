@@ -4,18 +4,58 @@
   margin: auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  animation: fade-out 0.5s ease-in 2s backwards;
   @include respond(tab-port) {
     flex-direction: column;
+    max-height: 6rem;
+    max-width: 100%;
+    width: 100%;
+    padding: 0 2rem;
   }
   &-logo {
     @include respond(tab-port) {
       margin: 2rem 0;
+      width: 25%;
     }
     &-img {
+      @include respond(tab-port) {
+        margin: 1rem 0;
+        width: 100%;
+      }
+    }
+  }
+  &-navigation {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &-navigation.sticky {
+    position: fixed;
+    z-index: 100;
+    background: $color-white;
+    min-height: 8rem;
+    width: 100vw;
+    padding: 0 10rem;
+    @include respond(tab-port) {
+      top: 0;
+      min-height: 4rem;
+      height: 5rem;
+    }
+    @include respond(phone) {
+      padding: 0 2rem;
+    }
+  }
+  &-navigation.sticky &-nav {
+    &-link {
+      color: $color-primary-dark;
     }
   }
   &-nav {
+    @include respond(tab-port) {
+      display: none;
+    }
     &-links {
       list-style: none;
       &-item {
@@ -27,7 +67,7 @@
       &:not(:last-child) {
         margin-right: 5rem;
         @include respond(tab-land) {
-          margin-right: 3.5rem;
+          margin-right: 2.5rem;
         }
         @include respond(tab-port) {
           margin-right: 2rem;
@@ -39,7 +79,13 @@
   }
   &-btns-box {
     @include respond(tab-port) {
-      margin: 2rem 0;
+      margin: 1rem 0;
+    }
+    @include respond(phone) {
+      .btn {
+        font-size: 1.1rem;
+        padding: 0.8rem 1.5rem;
+      }
     }
   }
 }

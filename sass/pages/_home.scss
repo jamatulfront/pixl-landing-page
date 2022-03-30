@@ -5,14 +5,32 @@
   display: flex;
   align-items: center;
   position: relative;
-  @include respond(phone) {
+  @include respond(tab-port) {
     flex-direction: column;
   }
+
   &-text-box {
     flex: 1;
+    h1 {
+      animation: scale-up 0.4s ease-out 0.7s backwards;
+    }
+    p {
+      animation: slide-up 0.4s ease-out 1.1s backwards;
+    }
+    button {
+      animation: fade-out 0.4s ease-out 1.5s backwards;
+    }
+    @include respond(tab-port) {
+      order: 2;
+      text-align: center;
+      width: 80%;
+      margin: auto;
+    }
     @include respond(phone) {
       order: 2;
       text-align: center;
+      width: 90%;
+      margin: auto;
     }
   }
   &-characters {
@@ -37,7 +55,8 @@
     &--1 {
       top: -6rem;
       left: 7rem;
-      animation: fade-out 1s ease-in, up-and-down 3s ease infinite;
+      animation: fade-out 0.3s ease-in 0.5s backwards,
+        up-and-down 3s ease infinite;
       @include respond(tab-land) {
         max-width: 30%;
         top: -4rem;
@@ -55,7 +74,8 @@
     &--2 {
       top: 20rem;
       left: -5rem;
-      animation: fade-out 1s ease-in, up-and-down 3s ease 1s infinite;
+      animation: fade-out 1s ease-in 0.6s backwards,
+        up-and-down 3s ease 1s infinite;
       @include respond(tab-land) {
         top: 15rem;
         left: -5rem;
@@ -72,7 +92,8 @@
     &--3 {
       top: -5rem;
       right: 0;
-      animation: fade-out 1s ease-in, up-and-down 3s ease 0.5s infinite;
+      animation: fade-out 1s ease-in 0.7s backwards,
+        up-and-down 3s ease 0.5s infinite;
       @include respond(tab-land) {
         top: -7rem;
         right: 0;
@@ -85,7 +106,8 @@
     &--4 {
       bottom: 0rem;
       right: 7rem;
-      animation: fade-out 1s ease-in, up-and-down 3s ease 1.5s infinite;
+      animation: fade-out 1s ease-in 0.8s backwards,
+        up-and-down 3s ease 1.5s infinite;
       @include respond(tab-land) {
         max-width: 30%;
         bottom: 0;
@@ -95,9 +117,14 @@
   }
   &-bg-circle {
     width: 80%;
+    animation: scale-up 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) backwards;
+    @include respond(tab-port) {
+      max-width: 70%;
+      margin-bottom: 8rem;
+    }
     @include respond(phone) {
       max-width: 50%;
-      margin-bottom: 1rem;
+      margin-bottom: 5rem;
     }
   }
 }
@@ -106,18 +133,36 @@
   max-width: 85%;
   margin: auto;
   margin-top: 25rem;
+  @include respond(tab-port) {
+    margin-top: 15rem;
+  }
   text-align: center;
 }
 .section-guides {
   padding-top: 16rem;
+  padding-bottom: 16rem;
+
   max-width: 85%;
   margin: auto;
   text-align: right;
   position: relative;
   display: flex;
   justify-content: flex-end;
+  transition: all 1s ease;
+  @include respond(tab-port) {
+    padding: 12rem 0;
+  }
+  @include respond(phone) {
+    padding: 8rem 0;
+  }
   &-text {
     width: 70%;
+    @include respond(tab-port) {
+      width: 85%;
+    }
+    @include respond(phone) {
+      width: 100%;
+    }
   }
   &-img-box {
     width: 30rem;
@@ -152,23 +197,40 @@
     z-index: -999;
     transform: scale(1.1);
     pointer-events: none;
+    @include respond(tab-port) {
+      display: none;
+    }
   }
 }
 .section-discover {
-  padding-top: 30rem;
+  padding-top: 15rem;
+  padding-bottom: 15rem;
+  @include respond(tab-port) {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+  @include respond(phone) {
+    padding: 5rem 0;
+  }
   width: 85%;
   margin: auto;
   display: flex;
   align-items: center;
   position: relative;
-  @include respond(phone) {
+  transition: all 1s ease;
+  @include respond(tab-port) {
     flex-direction: column;
+    text-align: center;
   }
 
   &-texts-box {
     flex: 1;
     order: 2;
     margin-left: 7rem;
+    @include respond(tab-port) {
+      margin-left: 0;
+      width: 75%;
+    }
     @include respond(phone) {
       order: 2;
       text-align: center;
@@ -255,32 +317,57 @@
   }
   &-bg-circle {
     width: 70%;
+    @include respond(tab-port) {
+      margin-bottom: 9rem;
+    }
     @include respond(phone) {
       max-width: 50%;
-      margin-bottom: 1rem;
+      margin-bottom: 3rem;
     }
   }
 }
 
 .section-discover-inverse {
-  padding-top: 30rem;
+  padding-top: 15rem;
+  padding-bottom: 15rem;
+  @include respond(tab-port) {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+  @include respond(phone) {
+    padding: 5rem 0;
+  }
   width: 85%;
-  margin: auto;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   position: relative;
-  @include respond(phone) {
+  transition: all 1s ease;
+  @include respond(tab-port) {
     flex-direction: column;
+    text-align: center;
   }
 
   &-btn {
     position: absolute;
     right: 0rem;
     bottom: -10rem;
+    @include respond(tab-port) {
+      bottom: -10rem;
+      right: -7rem;
+    }
+    @include respond(phone) {
+      bottom: 0;
+      right: 0rem;
+    }
   }
   &-texts-box {
     flex: 1;
     margin-left: 7rem;
+    @include respond(tab-port) {
+      margin-left: 0;
+      width: 75%;
+    }
     @include respond(phone) {
       order: 2;
       text-align: center;
@@ -290,6 +377,9 @@
     flex: 1;
     position: relative;
     @include centerFlex;
+    @include respond(tab-port) {
+      margin-top: 5rem;
+    }
     @include respond(phone) {
       order: 1;
     }
@@ -368,7 +458,13 @@
     width: 70%;
     @include respond(phone) {
       max-width: 50%;
-      margin-bottom: 1rem;
+      margin-bottom: 3rem;
     }
   }
+}
+
+.section-hidden {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(15rem);
 }
