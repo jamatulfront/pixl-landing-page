@@ -10,6 +10,34 @@ const discoverInverseSection = document.querySelector(
 );
 const clientGridItems = document.querySelectorAll(".clients-grid-item");
 
+const btnCreate = document.getElementById("btn-create");
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
+const btnCloseModal = document.querySelector(".btn--close-modal");
+
+//Model open
+
+const openModal = function (e) {
+  e.preventDefault();
+  modal.classList.remove("m-hidden");
+  overlay.classList.remove("m-hidden");
+};
+
+const closeModal = function () {
+  modal.classList.add("m-hidden");
+  overlay.classList.add("m-hidden");
+};
+
+btnCreate.addEventListener("click", openModal);
+
+btnCloseModal.addEventListener("click", closeModal);
+overlay.addEventListener("click", closeModal);
+
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+    closeModal();
+  }
+});
 //for scrolling to discover section
 discoverLink.addEventListener("click", (e) => {
   e.preventDefault();
@@ -34,7 +62,7 @@ let headerOpt = {
 let headerObserver = new IntersectionObserver(headerCallback, headerOpt);
 headerObserver.observe(header);
 
-//client revaling animation
+//clients revealing animation
 let clientObserver = new IntersectionObserver(
   (entries, observer) => {
     let [entry] = entries;
@@ -42,10 +70,12 @@ let clientObserver = new IntersectionObserver(
       clientGridItems.forEach((el, i) => {
         el.classList.remove(`c-h--${i + 1}`);
       });
+      observer.unobserve(entry.target);
     }
   },
   { root: null, threshold: 0.3 }
 );
+console.log(clientsSection);
 clientObserver.observe(clientsSection);
 
 //revealing at scrolling

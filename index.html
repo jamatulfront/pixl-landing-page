@@ -44,7 +44,9 @@
         </nav>
         <div class="header-btns-box">
           <button class="m-r-1 btn btn--white">Sign in</button>
-          <button class="btn btn--purple">Create Account</button>
+          <button id="btn-create" class="btn btn--purple">
+            Create Account
+          </button>
         </div>
       </div>
     </header>
@@ -336,6 +338,23 @@
         </div>
       </div>
     </footer>
+    <div class="modal m-hidden">
+      <button class="btn--close-modal">&times;</button>
+      <h2 class="modal__header">
+        Create your first account <br />
+        in just <span class="heading-secondary--gradient">One click</span>
+      </h2>
+      <form class="modal__form">
+        <label>First Name</label>
+        <input type="text" />
+        <label>Last Name</label>
+        <input type="text" />
+        <label>Email Address</label>
+        <input type="email" />
+        <button class="btn btn--white">Next step &rarr;</button>
+      </form>
+    </div>
+    <div class="overlay m-hidden"></div>
     <script src="./js/script.js"></script>
   </body>
 </html>
