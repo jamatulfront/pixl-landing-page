@@ -8,6 +8,7 @@
   animation: fade-out 0.5s ease-in 2s backwards;
   @include respond(tab-port) {
     flex-direction: column;
+    justify-content: center;
     max-height: 6rem;
     max-width: 100%;
     width: 100%;
@@ -16,7 +17,13 @@
   &-logo {
     @include respond(tab-port) {
       margin: 2rem 0;
-      width: 25%;
+      width: 20rem;
+    }
+    @include respond(phone) {
+      width: 15rem;
+    }
+    @media screen and (max-width: 330px) {
+      width: 12rem;
     }
     &-img {
       @include respond(tab-port) {
@@ -41,10 +48,11 @@
     @include respond(tab-port) {
       top: 0;
       min-height: 4rem;
-      height: 5rem;
+      height: 8rem;
     }
     @include respond(phone) {
       padding: 0 2rem;
+      height: 6rem;
     }
   }
   &-navigation.sticky &-nav {
@@ -83,8 +91,16 @@
     }
     @include respond(phone) {
       .btn {
-        font-size: 1.1rem;
-        padding: 0.8rem 1.5rem;
+        font-size: 1.4rem;
+        padding: 0;
+        margin: 0;
+        color: $color-primary-dark;
+        background: none;
+      }
+    }
+    @media screen and (max-width: 330px) {
+      .btn {
+        font-size: 1.3rem;
       }
     }
   }
